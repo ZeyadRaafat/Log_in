@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'ContainerWidget.dart';
+import 'package:log_in/Widgets/Title.dart';
+import 'package:log_in/Widgets/loginNavigate.dart';
+import '../Widgets/ContainerWidget.dart';
 
 class Login extends StatefulWidget {
+  const Login({super.key});
+
   @override
   _LoginState createState() => _LoginState();
 }
@@ -14,11 +18,8 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Sign in',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
+        title: const TitleText(
+          text: 'Sign in',
         ),
         backgroundColor: Colors.cyan,
       ),
@@ -27,74 +28,43 @@ class _LoginState extends State<Login> {
           child: Column(
             mainAxisSize: MainAxisSize.min, // Ensure the Column takes minimal space
             children: [
-              SizedBox(height: 90,),
-              Text(
-                'Welcome Broder',
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                ),
+              const SizedBox(height: 90,),
+              const TitleText(
+                text: 'Welcome Broder',
+                fontSize: 25,
               ),
-              SizedBox(height: 80,),
+              const SizedBox(height: 80,),
               FromConteinerWidget(
                 controller: _emailController,
                 hintText: "Email",
                 isPasswordField: false,
               ),
-              SizedBox(height: 15,),
+              const SizedBox(height: 15,),
               FromConteinerWidget(
                 controller: _passwordController,
                 hintText: "Password",
                 isPasswordField: true,
               ),
-              SizedBox(height: 50,),
+              const SizedBox(height: 50,),
               MaterialButton(
                 onPressed: () {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
+                    const SnackBar(
                       content: Text('Not Available yet'),
                       duration: Duration(seconds: 2),
                     ),
                   );
                 },
-                child: Text('Login'),
                 color: Colors.cyan,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10), // Border radius
                 ),
+                child: const Text('Login'),
               ),
-              SizedBox(height: 40,),
-              Row(
-                children: [
-                  SizedBox(width: 80,),
-                  Text('Do you Forget your Password?'),
-                  SizedBox(width: 8,),
-                  GestureDetector(
-                    child: Text(
-                      'Reset now',
-                      style: TextStyle(
-                        color: Colors.blue,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 15,),
-              Row(
-                children: [
-                  SizedBox(width: 110,),
-                  Text('Don\'t have an Account?'),
-                  SizedBox(width: 8,),
-                  GestureDetector(
-                    child: Text(
-                      'Sign up',
-                      style: TextStyle(
-                        color: Colors.blue,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              const SizedBox(height: 40,),
+              const navRow(fText: 'Do you forgot your Password?', sText: 'Reset now'),
+              const SizedBox(height: 15,),
+              const navRow(fText: 'Don\'t have an Account?', sText: 'Sign up')
             ],
           ),
         ),
