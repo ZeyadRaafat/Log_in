@@ -54,6 +54,18 @@ dev_dependencies:
 flutter:
   assets:
     - assets/zizo.jpg
+    - assets/download.png
+    - assets/download (1).png
+    - assets/download (2).png
+    - assets/download (3).png
+    - assets/download (4).png
+    - assets/download (5).png
+    - assets/download (6).png
+    - assets/download (7).png
+    - assets/yamal.png
+    - assets/messi.png
+    - assets/ronaldinho.png
+    - assets/cruyff.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

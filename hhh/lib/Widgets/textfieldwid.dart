@@ -7,7 +7,9 @@ class FromConteinerWidget extends StatefulWidget {
   final String? hintText;
   final String? labelText;
   final String? helperText;
+  final FormFieldSetter<String>? onSaved;
   final FormFieldValidator<String>? validator;
+  final ValueChanged<String>? onFieldsubmitted;
   final TextInputType? inputType;
   final IconData? prefixIcon;
 
@@ -18,7 +20,9 @@ class FromConteinerWidget extends StatefulWidget {
         this.hintText,
         this.labelText,
         this.helperText,
+        this.onSaved,
         this.validator,
+        this.onFieldsubmitted,
         this.inputType,
         this.prefixIcon});
 
@@ -32,28 +36,30 @@ class _FromConteinerWidgetState extends State<FromConteinerWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: 300,
+        width: 350,
         height: 50,
-        child: new TextFormField(
+        child:  TextFormField(
           style: TextStyle(color: Colors.black),
           controller: widget.controller,
           keyboardType: widget.inputType,
           key: widget.fieldKey,
           obscureText: widget.isPasswordField == true ? _obscureText : false,
+          onSaved: widget.onSaved,
           validator: widget.validator,
-          decoration: new InputDecoration(
+          onFieldSubmitted: widget.onFieldsubmitted,
+          decoration:  InputDecoration(
             isDense: true,
             contentPadding: EdgeInsets.all(16.0),
             prefixIcon: widget.prefixIcon!= null ? Icon(widget.prefixIcon) : null,
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(25),
               borderSide: BorderSide(color: Colors.blue, width: 1),
             ),
             fillColor: Colors.transparent,
             filled: true,
             hintText: widget.hintText,
             hintStyle: TextStyle(color: Colors.grey[500]),
-            suffixIcon: new GestureDetector(
+            suffixIcon:  GestureDetector(
               onTap: () {
                 setState(() {
                   _obscureText = !_obscureText;
