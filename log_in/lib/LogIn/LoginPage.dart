@@ -45,7 +45,7 @@ class _LoginState extends State<Login> {
                     controller: _emailController,
                     validator: (value){
                       if(value=="" || value==null){
-                        return "Email is required";
+                        return "Email is Required";
                       }
                       return null;
                     },
@@ -60,7 +60,7 @@ class _LoginState extends State<Login> {
                     controller: _passwordController,
                     validator: (value){
                       if(value=="" || value==null){
-                        return "Password is required";
+                        return "Password is Required";
                       }
                       return null;
                     },
